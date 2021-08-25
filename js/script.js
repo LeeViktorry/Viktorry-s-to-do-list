@@ -18,6 +18,7 @@ const submit = document.querySelector('.submit')
 const age = document.querySelector('.age')
 const country = document.querySelector('.country')
 const status = document.querySelector('.status')
+const signout = document.querySelector('.signout')
 
 window.addEventListener('load', () =>{
     if (!localStorage.getItem('workers')){
@@ -117,3 +118,18 @@ function Edit(id){
     localStorage.setItem('workers' , JSON.stringify(changedBase))
     window.location.reload()
 }
+
+
+window.addEventListener('load' , () =>{
+    localStorage.setItem('isAuth' , 'false')
+})
+
+
+signout.addEventListener('click' , e =>{
+    e.preventDefault();
+
+    if(localStorage.getItem('isAuth') === 'false'){
+        window.open('auth.html' , '_self')
+    }
+
+})
